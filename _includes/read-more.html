@@ -1,26 +1,26 @@
 <div class="read-more">
   {% for tag in page.tags %}
-  {% assign items = site.tags[tag] | where_exp:"item", "item.date > page.date" | reverse %}
-    {% if items.size == 0 %}
-    {% assign items = site.tags[tag] | where_exp:"item", "item.date < page.date" %}
-    {% endif %}
-  {% for post in items limit:1 %}
-    <div class="read-more-header">
-      <a href="{{ site.url }}/posts" class="read-more-btn">Read More</a>
-    </div><!-- /.read-more-header -->
-    <div class="read-more-content">
-      <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-      <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>
-      <p><!-- {% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 0 }}{% endif %}  <a href="{{ site.url }}{{ post.url }}">Continue reading</a></p>-->
-    </div><!-- /.read-more-content -->
-  {% endfor %}
-  <div class="read-more-list">
-    {% for post in items limit:2 offset:1 %}
-      <div class="list-item">
-        <h4><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+    {% assign items = site.tags[tag] | where_exp:"item", "item.date > page.date" | reverse %}
+      {% if items.size == 0 %}
+      {% assign items = site.tags[tag] | where_exp:"item", "item.date < page.date" %}
+      {% endif %}
+    {% for post in items limit:1 %}
+      <div class="read-more-header">
+        <a href="{{ site.url }}/posts" class="read-more-btn">Read More</a>
+      </div><!-- /.read-more-header -->
+      <div class="read-more-content">
+        <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
         <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>
-      </div><!-- /.list-item -->
+        <p><!-- {% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 0 }}{% endif %}  <a href="{{ site.url }}{{ post.url }}">Continue reading</a></p>-->
+      </div><!-- /.read-more-content -->
     {% endfor %}
+    <div class="read-more-list">
+      {% for post in items limit:2 offset:1 %}
+        <div class="list-item">
+          <h4><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+          <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>
+        </div><!-- /.list-item -->
+      {% endfor %}
+      </div><!-- /.read-more-list -->
   {% endfor %}
-  </div><!-- /.read-more-list -->
 </div><!-- /.read-more -->
