@@ -7,7 +7,7 @@ image:
   feature: abstract-1.jpg
 ---
 
-이전 글 중에서 [도커를 활용해 서버를 구성하는 글](https://harry24k.github.io/note/deep-learning-server-docker-post/)이 있었는데, nvidia driver, Docker 및 nvidia-docker의 업데이트로 달라진 환경을 설정해보려 합니다.
+이전 글 중에서 [도커를 활용해 서버를 구성하는 글](https://harry24k.github.io/notes/deep-learning-server-docker-post/)이 있었는데, nvidia driver, Docker 및 nvidia-docker의 업데이트로 달라진 환경을 설정해보려 합니다.
 
 ## NVIDIA 드라이버 업그레이드
 
