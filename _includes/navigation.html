@@ -1,0 +1,16 @@
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="{{ site.url }}/">All Posts</a></li>
+		<li><a href="{{ site.url }}/categories/">By Category</a></li>
+		<li><a href="{{ site.url }}/years/">By Year</a></li>
+		{% for link in site.data.navigation %}
+			{% if link.url contains 'http' %}
+				{% assign domain = '' %}
+			{% else %}
+				{% assign domain = site.url %}
+			{% endif %}
+			<li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+		{% endfor %}
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
